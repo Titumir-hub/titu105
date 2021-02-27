@@ -1,0 +1,85 @@
+{% load static %}
+{% static "images" as baseUrl %}
+
+<html lang="en">
+<head>
+
+	<title>Register</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/register.css' %}">
+</head>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+<br><br><br> <br>
+<body>
+<div class="container">
+	<div class="card bg-light">
+<article class="card-body mx-auto" style="max-width: 400px;">
+	<h4 class="card-title mt-3 text-center">Create Account</h4>
+
+
+	<form action="register" method="post">
+        {% csrf_token %}
+	<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user-circle"></i> </span>
+		 </div>
+        <input  class="form-control" type="text" name="first_name" placeholder="First name">
+	</div> <!-- form-group// -->
+		<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user-circle"></i> </span>
+		 </div>
+        <input  class="form-control" type="text" name="last_name" placeholder="Last name">
+	</div> <!-- form-group// -->
+		<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user-circle"></i> </span>
+		 </div>
+        <input  class="form-control" type="text" name="username" placeholder="User name">
+	</div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		 </div>
+        <input type="email" name="email"  class="form-control" placeholder="Email address">
+    </div> <!-- form-group// -->
+ <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control" type="password" name="password1"  placeholder="Create password" type="password">
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control" type="password" name="password2"  placeholder="Confirm password" type="password">
+    </div> <!-- form-group// -->
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Create Account </button>
+
+	</div> <!-- form-group// -->
+    <p class="text-center">Have an account? <a href="">Log In</a> </p>
+</form>
+</article>
+</div> <!-- card.// -->
+</div>
+<div>
+	{% for m in messages %}
+	 <h4 align="center" style="color:red;">{{m}} </h4>
+	{% endfor %}
+</div>
+
+
+
+
+</body>
+</html>
+
+
